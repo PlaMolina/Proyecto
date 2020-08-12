@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const MODEL = 'consulta';
 
@@ -63,7 +64,12 @@ class Consulta extends Component {
 
 
         return (
+            
             <>
+            <Link to="/menu">
+                    <h1>Volver al menu principal</h1>
+                </Link>
+            
                 <h1>{MODEL}</h1>
                 <Table>
                     <thead>
