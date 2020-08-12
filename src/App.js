@@ -7,7 +7,7 @@ import "./styles/App.css";
 //import Component from '.Component';
 import Pacientes from './Pacientes';
 import Calendario from './Calendario';
-import Consultas from './Consultas';
+import Consulta from './Consulta';
 import Menu from './Menu';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import Counter from './Counter';
@@ -24,7 +24,7 @@ function App() {
             <Route path="/menu" component={Menu}/>
             <Route path="/pacientes" component={Pacientes} />
             <Route path="/calendario" component={Calendario} />
-            <Route path="/consultas" component={Consultas} />
+            <Route path="/consulta" component={Consulta} />
             <Route path="/formulario" component={Form}/>
           </Switch>
         </header>

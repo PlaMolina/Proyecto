@@ -6,7 +6,7 @@ import './styles/Boton.css'
 
 function Menu (){
     function goUrl(){
-        window.location.href='http://localhost:3000/pacientes'  
+        window.location.href='http://localhost:3001/pacientes'  
     }
     return (
         <div>
