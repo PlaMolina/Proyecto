@@ -26,6 +26,9 @@ function Modal() {
                     <Button variant="secondary" onClick={handleClose}>
                         Cancelar
                     </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Guardar
+                    </Button>
                 </Modal.Footer>
 
             </Modal>
