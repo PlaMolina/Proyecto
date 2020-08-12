@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import "./styles/App.css";
 //import { render } from 'react-dom';
 import { Button } from 'reactstrap';
+import Modal from "react-bootstrap/Modal";
+import ModalBody from 'react-bootstrap/Modal.Body';
+import ModalHeader from 'react-bootstrap/Modal.Header';
+import ModalFooter from 'react-bootstrap/Modal.Footer';
+import ModalTitle from 'react-bootstrap/Modal.Title';
+import ModalFooter from 'react-bootstrap/Modal.Footer';
 
 
 
@@ -17,19 +23,19 @@ function Modal() {
             </Button>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Cabecera</Modal.Title>
-                </Modal.Header>
+                <ModalHeader closeButton>
+                    <ModalTitle>Cabecera</ModalTitle>
+                </ModalHeader>
 
-                <Modal.Body>bla bla</Modal.Body>
-                <Modal.Footer>
+                <ModalBody>bla bla</ModalBody>
+                <ModalFooter>
                     <Button variant="secondary" onClick={handleClose}>
                         Cancelar
                     </Button>
                     <Button variant="primary" onClick={handleClose}>
                         Guardar
                     </Button>
-                </Modal.Footer>
+                </ModalFooter>
 
             </Modal>
         </>
