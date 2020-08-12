@@ -12,13 +12,14 @@ import Menu from './Menu';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import Counter from './Counter';
 import Form from './Form';
+//import Modal from './Modal';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-        
+        {/*<Modal/>*/}
           <Switch>
             <Route path="/" exact component={Vista}/>
             <Route path="/menu" component={Menu}/>
