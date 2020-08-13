@@ -1,6 +1,5 @@
-
 import React, { Component } from 'react';
-import {Table,Input,Label,Button} from 'reactstrap';
+import {Table,Input,Label,Button,Modal,ModalBody,ModalHeader,ModalFooter,FormGroup} from 'reactstrap';
 
 const MODEL = 'cliente';
 
@@ -23,10 +22,13 @@ class Pacientes extends Component {
       telefono:'',
       email:'',
       domicilio:'',
-      cuentaBancaria:''
+      cuentaBancaria:'',
+      abierto:false,
     }
+  
     this.cargaDatos = this.cargaDatos.bind(this);
     this.eliminar=this.eliminar.bind (this);
+    this.actualizaInputs = this.actualizaInputs.bind(this);
  
   } 
 
@@ -63,14 +65,73 @@ class Pacientes extends Component {
     
 
   }
+  editar(cliente){
+    console.log("editando cliente: ", cliente.nombre);
+    this.setState({
+      cliente_id: cliente.cliente_id,
+      nombre: cliente.nombre,
+      apellidos:cliente.apellidos,
+      telefono:cliente.telefono,
+      email: cliente.email,
+      domicilio:cliente.domicilio,
+      cuentaBancaria:cliente.cuentaBancaria,
+      abierto:!this.state.abierto
+      
+    })}
 
- 
+  actualizaInputs = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  guardar(){
+
+    console.log('hola')
+    const aa = {
+      nombre: this.state.nombre,
+      apellidos:this.state.apellidos,
+      telefono:this.state.telefono,
+      email: this.state.email,
+      domicilio:this.state.domicilio,
+      cuentaBancaria:this.state.cuentaBancaria,
+      abierto:!this.state.abierto
+    };
+
+    const opcions = {
+      method: "PATCH",
+      headers: HEADERS,
+      body: JSON.stringify (aa)
+    };
+
+    const desarURL = API_URL+'/'+this.state.cliente_id
+     
+
+    fetch(desarURL, opcions)
+    
+    .then(() => this.cargaDatos())
+    .then(() => this.setState({
+      cliente_id: 0,
+      nombre: '',
+      apellidos: '',
+      telefono:'',
+      email:'',
+      domicilio:'',
+      cuentaBancaria:'',
+      
+    }))
+    .catch(error => console.log("se ha producido un error: ", error));
+
+  }
 
   render() {
     if (this.state.llista.length === 0) {
       return <h3>Cargando...</h3>
     }
 
+   
     const filas = this.state.llista.map((el, i) => (
             <tr key={i}>
               <td>{el.cliente_id}</td>
@@ -81,7 +142,7 @@ class Pacientes extends Component {
               <td>{el.domicilio}</td>
               <td>{el.cuentaBancaria}</td>
               <td><Button color="danger"  onClick={()=>this.eliminar(el.cliente_id)}>Eliminar</Button></td>
-              <td><Button color="primary" >Editar</Button></td>
+              <td><Button color="primary" onClick={()=>this.editar(el)}>Editar</Button></td>
 
             </tr>
         ));
@@ -109,6 +170,53 @@ class Pacientes extends Component {
             {filas}
           </tbody>
         </Table>
+      
+       <Modal isOpen={this.state.abierto}>
+         <ModalHeader>
+           Modificación
+         </ModalHeader>
+
+         <ModalBody>
+
+          <FormGroup>
+            <Label>Nombre</Label>
+            <Input type='text' value={this.state.nombre} name="nombre" onChange={this.actualizaInputs}></Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label>Apellidos</Label>
+            <Input type='text' value={this.state.apellidos} name="apellidos" onChange={this.actualizaInputs}></Input>
+          </FormGroup>
+
+         
+         <FormGroup>
+            <Label>Teléfono</Label>
+            <Input type='text' value={this.state.telefono} name="telefono" onChange={this.actualizaInputs}></Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label>Email</Label>
+            <Input type='text' value={this.state.email} name="email" onChange={this.actualizaInputs}></Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label>Domicilio</Label>
+            <Input type='text' value={this.state.domicilio} name="domicilio" onChange={this.actualizaInputs}></Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label>Cuenta Bancaria</Label>
+            <Input type='text' value={this.state.cuentaBancaria} name="cuentaBancaria" onChange={this.actualizaInputs}></Input>
+          </FormGroup>
+
+          </ModalBody>
+
+         <ModalFooter>
+
+           <Button color='success'  onClick={this.guardar}>Guardar</Button>
+
+         </ModalFooter>
+       </Modal>
        
       </>
     )
