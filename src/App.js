@@ -13,9 +13,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import Counter from './Counter';
 import Form from './Form';
 //import Modal from './Modal';
+import NavBar from './NavBar'
 
 function App() {
   return (
+    <>
+    <NavBar nombre='Alfonso' apellido= 'Martinez'/>
     <Router>
       <div className="App">
         <header className="App-header">
@@ -32,6 +35,7 @@ function App() {
 
       </div>
     </Router>
+    </>
   );
 }
 
