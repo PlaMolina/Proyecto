@@ -29,24 +29,12 @@ class Pacientes extends Component {
     this.cargaDatos = this.cargaDatos.bind(this);
     this.eliminar=this.eliminar.bind (this);
     this.actualizaInputs = this.actualizaInputs.bind(this);
- 
+    this.guardar=this.guardar.bind(this);
+    this.editar=this.editar.bind(this);
+   
   } 
 
-  componentDidMount(){
-    this.cargaDatos();
-  }
-
-  cargaDatos(){
-    const opciones = {
-      method: "GET",
-      headers: HEADERS,
-    };
-    
-    fetch(API_URL, opciones)
-    .then(texto => texto.json())
-    .then(datos => this.setState({llista: datos}))
- 
-  }
+  
   
   eliminar(cliente_id){
     console.log("borrando "+ cliente_id);
@@ -88,26 +76,24 @@ class Pacientes extends Component {
   }
 
   guardar(){
-
-    console.log('hola')
-    const aa = {
+    const cliente = {
       nombre: this.state.nombre,
       apellidos:this.state.apellidos,
       telefono:this.state.telefono,
       email: this.state.email,
       domicilio:this.state.domicilio,
-      cuentaBancaria:this.state.cuentaBancaria,
-      abierto:!this.state.abierto
+      cuentaBancaria:this.cuentaBancaria
+      
     };
 
     const opcions = {
-      method: "PATCH",
+      method:  "PATCH",
       headers: HEADERS,
-      body: JSON.stringify (aa)
+      body: JSON.stringify(cliente)
     };
 
-    const desarURL = API_URL+'/'+this.state.cliente_id
-     
+    const desarURL =  API_URL+'/'+this.state.cliente_id
+      
 
     fetch(desarURL, opcions)
     
@@ -115,16 +101,36 @@ class Pacientes extends Component {
     .then(() => this.setState({
       cliente_id: 0,
       nombre: '',
-      apellidos: '',
+      apellidos:'',
       telefono:'',
-      email:'',
+      email: '',
       domicilio:'',
       cuentaBancaria:'',
-      
+      abierto:!this.state.abierto
     }))
     .catch(error => console.log("se ha producido un error: ", error));
 
   }
+
+ 
+ 
+  componentDidMount(){
+    this.cargaDatos();
+  }
+
+  cargaDatos(){
+    const opciones = {
+      method: "GET",
+      headers: HEADERS,
+    };
+    
+    fetch(API_URL, opciones)
+    .then(texto => texto.json())
+    .then(datos => this.setState({llista: datos}))
+ 
+  }
+
+ 
 
   render() {
     if (this.state.llista.length === 0) {
@@ -143,6 +149,8 @@ class Pacientes extends Component {
               <td>{el.cuentaBancaria}</td>
               <td><Button color="danger"  onClick={()=>this.eliminar(el.cliente_id)}>Eliminar</Button></td>
               <td><Button color="primary" onClick={()=>this.editar(el)}>Editar</Button></td>
+              
+
 
             </tr>
         ));
@@ -170,7 +178,7 @@ class Pacientes extends Component {
             {filas}
           </tbody>
         </Table>
-      
+
        <Modal isOpen={this.state.abierto}>
          <ModalHeader>
            Modificación
@@ -181,6 +189,8 @@ class Pacientes extends Component {
           <FormGroup>
             <Label>Nombre</Label>
             <Input type='text' value={this.state.nombre} name="nombre" onChange={this.actualizaInputs}></Input>
+          
+
           </FormGroup>
 
           <FormGroup>
@@ -214,10 +224,14 @@ class Pacientes extends Component {
          <ModalFooter>
 
            <Button color='success'  onClick={this.guardar}>Guardar</Button>
-
+         
          </ModalFooter>
        </Modal>
-       
+
+    
+
+
+        
       </>
     )
 
