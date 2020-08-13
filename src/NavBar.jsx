@@ -17,11 +17,8 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar color="info" light expand="md">
+      <Navbar fixed='top'color="info" light expand="md">
         <NavbarBrand><img src={iconoperfil} alt='' /></NavbarBrand>
-            
-        
-     
           <Nav className="mr-auto" navbar>
               <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -38,9 +35,7 @@ const NavBar = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-             
-  
-          <NavbarBrand><img src={Logoempresa} alt=''/></NavbarBrand>
+         <NavbarBrand><img src={Logoempresa} alt=''/></NavbarBrand>
       </Navbar>
     </div>
   );

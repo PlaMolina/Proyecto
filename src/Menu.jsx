@@ -1,25 +1,27 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import './styles/Boton.css'
-
-
+import './styles/Boton.css';
+import Logoempresa from './img/Logoempresa.png';
+import iconopacientes from './img/iconopacientes.png'
+import iconocalendario from './img/iconocalendario.png'
+import iconoconsultas from './img/iconoconsultas.png'
 
 function Menu (){
-    function goUrl(){ 
+    function goPacientes(){ 
         window.location.href='http://localhost:3001/pacientes'  
     }
-    function goUrl2(){
+    function goCalendario(){
         window.location.href='http://localhost:3001/calendario'  
     }
-    function goUrl3(){
+    function goConsultas(){
         window.location.href='http://localhost:3001/consulta'  
     }
     return (
         <div>
             
-            <Button size="lg" block onClick={goUrl}>Pacientes</Button>{' '}
-            <Button size="lg" block onClick={goUrl2}>Calendario</Button>{' '}
-            <Button size="lg" block onClick={goUrl3}>Consultas</Button>{' '}
+            <button className= 'Boton' block onClick={goPacientes}><img src={iconopacientes} alt='Pacientes' /></button>{' '}
+            <button className= 'Boton' block onClick={goCalendario}><img src={iconocalendario} alt='Calendario' /></button>{' '}
+            <button className= 'Boton' block onClick={goConsultas}><img src={iconoconsultas} alt='Consultas' /></button>{' '}
 
         </div>
 
