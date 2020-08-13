@@ -64,12 +64,12 @@ class Consulta extends Component {
 
 
         return (
-            
+
             <>
-            <Link to="/menu">
+                <Link to="/menu">
                     <h1>Volver al menu principal</h1>
                 </Link>
-            
+
                 <h1>{MODEL}</h1>
                 <Table>
                     <thead>
