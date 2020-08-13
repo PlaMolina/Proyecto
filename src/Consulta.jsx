@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const MODEL = 'consulta';
+const MODEL = 'cliente_consulta';
 
 const API_URL = "http://localhost:3000/api/" + MODEL;
 
@@ -50,7 +50,7 @@ class Consulta extends Component {
 
         const filas = this.state.llista.map((el, i) => (
             <tr key={i}>
-                <td>{el.comentario}</td>
+                <td>{el.nombre}</td>
                 <td>{el.precio}</td>
                 <td>{el.fecha}</td>
                 <td>{el.pago}</td>
