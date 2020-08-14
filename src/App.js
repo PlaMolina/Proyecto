@@ -16,25 +16,45 @@ import Form from './Form';
 import NavBar from './NavBar'
 
 function App() {
-  return (
+  const loginContainer = () => (
     <>
-    <NavBar nombre='Alfonso' apellido= 'Martinez'/>
-    <Router>
       <div className="App">
         <header className="App-header">
-        {/*<Modal/>*/}
-          <Switch>
-            <Route path="/" exact component={Vista}/>
-            <Route path="/menu" component={Menu}/>
-            <Route path="/pacientes" component={Pacientes} />
-            <Route path="/calendario" component={Calendario} />
-            <Route path="/consulta" component={Consulta} />
-            <Route path="/formulario" component={Form}/>
-          </Switch>
+          
+          <Route path="/" component={Vista} />
         </header>
-
       </div>
-    </Router>
+    </>)
+
+  const appContainer = () => (
+    <>
+      <div className="App">
+      <div> <NavBar nombre='Alfonso' apellido='Martinez' /></div>
+        <header className="App-header">
+          {/*<Modal/>*/}          
+          <Route path="/menu" component={()=><Menu clase='Boton' />} />
+          <Route path="/pacientes" component={Pacientes} />
+          <Route path="/calendario" component={Calendario} />
+          <Route path="/consulta" component={Consulta} />
+          <Route path="/formulario" component={Form} />
+
+
+        </header>
+      </div>
+    </>)
+
+  return (
+    <>
+
+      <Router>
+        <Switch>
+
+          <Route exact path="/" component={loginContainer} />
+          <Route component={appContainer} />
+
+
+        </Switch>
+      </Router>
     </>
   );
 }

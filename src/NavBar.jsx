@@ -11,7 +11,6 @@ import {
 import Logoempresa from './img/Logoempresa.png';
 import iconoperfil from './img/iconoperfil.png';
 
-
 const NavBar = (props) => {
 
 
@@ -29,7 +28,7 @@ const NavBar = (props) => {
                   Ajustes de perfil
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>
+                <DropdownItem href='/'>
                   Cerrar sesión
                 </DropdownItem>
               </DropdownMenu>
