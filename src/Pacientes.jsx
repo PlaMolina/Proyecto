@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Table,Input,Label,Button,Modal,ModalBody,ModalHeader,ModalFooter,FormGroup} from 'reactstrap';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
+
 const MODEL = 'cliente';
 
 const API_URL = "http://localhost:3000/api/" + MODEL;
@@ -32,6 +33,7 @@ class Pacientes extends Component {
     this.actualizaInputs = this.actualizaInputs.bind(this);
     this.guardar=this.guardar.bind(this);
     this.editar=this.editar.bind(this);
+    this.cerrar=this.cerrar.bind(this);
    
   } 
 
@@ -113,6 +115,13 @@ class Pacientes extends Component {
 
   }
 
+  cerrar(){
+    this.setState({
+      
+      abierto:!this.state.abierto
+      
+    })}
+  
  
  
   componentDidMount(){
@@ -151,6 +160,7 @@ class Pacientes extends Component {
               <td><Button color="danger"  onClick={()=>this.eliminar(el.cliente_id)}>Eliminar</Button></td>
               <td><Button color="primary" onClick={()=>this.editar(el)}>Editar</Button></td>
               
+
 
             </tr>
         ));
@@ -224,15 +234,17 @@ class Pacientes extends Component {
          <ModalFooter>
 
            <Button color='success'  onClick={this.guardar}>Guardar</Button>
+           <Button color='danger'  onClick={this.cerrar} >Cancelar</Button>
+         
          
          </ModalFooter>
        </Modal>
-
-        <Button color='success'>
-          <Link to="/Nuevo/"className='texto-botones'>Añadir Paciente</Link>
+        <br></br>
+        <Button color='success' style={{marginLeft:'65%'}}>
+          <Link to="/Nuevo/"className='texto-botones' >Añadir Paciente</Link>
         </Button>
 
-    
+  
 
 
         
