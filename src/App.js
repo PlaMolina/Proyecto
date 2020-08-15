@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Form from './Form';
 //import Modal from './Modal';
 import NavBar from './NavBar'
+import BotonNuevo from "./BotonNuevo";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" exact component={Vista}/>
             <Route path="/menu" component={Menu}/>
             <Route path="/pacientes" component={Pacientes} />
+            <Route path="/nuevo" component={BotonNuevo} />
             <Route path="/calendario" component={Calendario} />
             <Route path="/consulta" component={Consulta} />
             <Route path="/formulario" component={Form}/>

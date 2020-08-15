@@ -3,6 +3,7 @@ import {Table,Input,Label,Button,Modal,ModalBody,ModalHeader,ModalFooter,FormGro
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 
+
 const MODEL = 'cliente';
 
 const API_URL = "http://localhost:3000/api/" + MODEL;
@@ -164,14 +165,22 @@ class Pacientes extends Component {
 
             </tr>
         ));
-        
+
+        function goNuevo(){ 
+          window.location.href='http://localhost:3001/nuevo'  
+      }
     return (
       <>
      
        
         <br />
         <br />
-        <Table>
+        <br />
+        <Link to="/menu" style={{color:'white'}}> <p>Volver al menu principal</p></Link>
+        <br />
+        <br />
+      
+        <Table style={{color:'white'}}>
           <thead>
             <tr>
               
@@ -181,6 +190,7 @@ class Pacientes extends Component {
               <th>Email</th>
               <th>Domicilio</th>
               <th>Cuenta Bancaria</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -240,10 +250,12 @@ class Pacientes extends Component {
          </ModalFooter>
        </Modal>
         <br></br>
-        <Button color='success' style={{marginLeft:'65%'}}>
-          <Link to="/Nuevo/"className='texto-botones' >Añadir Paciente</Link>
+
+        <Button color='success'  onClick={goNuevo}>
+         Añadir paciente
         </Button>
 
+      
   
 
 

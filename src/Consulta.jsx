@@ -66,12 +66,19 @@ class Consulta extends Component {
         return (
 
             <>
-                <Link to="/menu">
-                    <h1>Volver al menu principal</h1>
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+                <Link to="/menu" style={{color:'white'}}>
+                    <p>Volver al menu principal</p>
                 </Link>
 
-                <h1>{MODEL}</h1>
-                <Table>
+            <br></br>
+
+             
+                <Table style={{color:'white'}}>
                     <thead>
                         <tr>
                             <th>Nom</th>

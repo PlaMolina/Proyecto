@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {FormGroup,Label,Input, Button} from 'reactstrap';
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const MODEL = 'cliente';
 
@@ -103,6 +104,13 @@ render (){
     return(
         <>
         
+        <div>
+        
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Link to="/pacientes" style={{color:'white'}}> <h2>Volver a pacientes</h2></Link>
         <FormGroup className='contenedorNuevo'>
         <Label>Nombre</Label>
         <Input type='text'  name="nombre" value={this.state.nombre} onChange={this.actualizaInputs} ></Input>
@@ -138,7 +146,7 @@ render (){
 
       <Button color='success' onClick={this.guardar}>Guardar</Button>
       
-
+      </div>
       </>
     )
 }
