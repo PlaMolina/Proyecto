@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Table,Input,Label,Button,Modal,ModalBody,ModalHeader,ModalFooter,FormGroup} from 'reactstrap';
+import { BrowserRouter as  Link } from "react-router-dom";
 
 const MODEL = 'cliente';
 
@@ -140,7 +141,7 @@ class Pacientes extends Component {
    
     const filas = this.state.llista.map((el, i) => (
             <tr key={i}>
-              <td>{el.cliente_id}</td>
+             
               <td>{el.nombre}</td>
               <td>{el.apellidos}</td>
               <td>{el.telefono}</td>
@@ -150,7 +151,6 @@ class Pacientes extends Component {
               <td><Button color="danger"  onClick={()=>this.eliminar(el.cliente_id)}>Eliminar</Button></td>
               <td><Button color="primary" onClick={()=>this.editar(el)}>Editar</Button></td>
               
-
 
             </tr>
         ));
@@ -164,7 +164,7 @@ class Pacientes extends Component {
         <Table>
           <thead>
             <tr>
-              <th>ID</th>
+              
               <th>Nombre</th>
               <th>Apellidos</th>
               <th>Telefono</th>
@@ -227,6 +227,10 @@ class Pacientes extends Component {
          
          </ModalFooter>
        </Modal>
+
+        <Button color='success'>
+          <Link to="/Nuevo/"className='texto-botones'>Añadir Paciente</Link>
+        </Button>
 
     
 
