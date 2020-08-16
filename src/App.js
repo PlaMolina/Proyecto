@@ -22,15 +22,9 @@ function App() {
       <div className="App">
         <header className="App-header">
         {/*<Modal/>*/}
-          <Switch>
+          
             <Route path="/" exact component={Vista}/>
-            <Route path="/menu" component={Menu}/>
-            <Route path="/pacientes" component={Pacientes} />
-            <Route path="/nuevo" component={BotonNuevo} />
-            <Route path="/calendario" component={Calendario} />
-            <Route path="/consulta" component={Consulta} />
-            <Route path="/formulario" component={Form}/>
-          </Switch>
+    
         </header>
       </div>
     </>)
