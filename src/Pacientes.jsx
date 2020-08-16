@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Table,Input,Label,Button,Modal,ModalBody,ModalHeader,ModalFooter,FormGroup} from 'reactstrap';
+import { BrowserRouter as Router, Link } from "react-router-dom";
+
+
 
 const MODEL = 'cliente';
 
@@ -31,6 +34,7 @@ class Pacientes extends Component {
     this.actualizaInputs = this.actualizaInputs.bind(this);
     this.guardar=this.guardar.bind(this);
     this.editar=this.editar.bind(this);
+    this.cerrar=this.cerrar.bind(this);
    
   } 
 
@@ -112,6 +116,13 @@ class Pacientes extends Component {
 
   }
 
+  cerrar(){
+    this.setState({
+      
+      abierto:!this.state.abierto
+      
+    })}
+  
  
  
   componentDidMount(){
@@ -140,7 +151,7 @@ class Pacientes extends Component {
    
     const filas = this.state.llista.map((el, i) => (
             <tr key={i}>
-              <td>{el.cliente_id}</td>
+             
               <td>{el.nombre}</td>
               <td>{el.apellidos}</td>
               <td>{el.telefono}</td>
@@ -154,23 +165,32 @@ class Pacientes extends Component {
 
             </tr>
         ));
-        
+
+        function goNuevo(){ 
+          window.location.href='http://localhost:3001/nuevo'  
+      }
     return (
       <>
      
        
         <br />
         <br />
-        <Table>
+        <br />
+        <Link to="/menu" style={{color:'white'}}> <p>Volver al menu principal</p></Link>
+        <br />
+        <br />
+      
+        <Table style={{color:'white'}}>
           <thead>
             <tr>
-              <th>ID</th>
+              
               <th>Nombre</th>
               <th>Apellidos</th>
               <th>Telefono</th>
               <th>Email</th>
               <th>Domicilio</th>
               <th>Cuenta Bancaria</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -224,11 +244,19 @@ class Pacientes extends Component {
          <ModalFooter>
 
            <Button color='success'  onClick={this.guardar}>Guardar</Button>
+           <Button color='danger'  onClick={this.cerrar} >Cancelar</Button>
+         
          
          </ModalFooter>
        </Modal>
+        <br></br>
 
-    
+        <Button color='success'  onClick={goNuevo}>
+         Añadir paciente
+        </Button>
+
+      
+  
 
 
         

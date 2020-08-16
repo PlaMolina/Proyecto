@@ -1,27 +1,51 @@
-import React from 'react';
-//import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import Calendar from 'react-calendar';
+import {Button} from 'reactstrap';
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
+ 
+export default class Calendario extends Component {
+  state = {
+    date: new Date(),
+  }
+ 
+  onChange = date => this.setState({ date })
 
-
-function Pacientes() {
+  alerta(){
+    
+    alert('Visita la pagina consultas.')
+  }
+  
+  render() {
+    function goConsulta(){ 
+        window.location.href='http://localhost:3001/consulta'  
+    }
     return (
+      <>
+      
+      <br></br>
+      <br></br>
+      <br></br>
+      <Link to="/menu" style={{color:'white'}}> <p>Volver al menu principal</p></Link>
+     
+      <div style={{marginLeft:'1%'}}>
+        <Calendar 
+          onChange={this.onChange}
+          value={this.state.date}
+          onClickDay={this.alerta}
+        />
         
-        <div>
-            <Link to="/menu">
-                    <h1>Volver al menu principal</h1>
-                </Link>
-            <li>Lunes</li>
-            <li>Martes</li>
-            <li>Miercoles</li>
-            <li>Jueves</li>
-            <li>Viernes</li>
-            
-                
-            
-            
-        </div>
-    )
+       
+          
+        <Button color='primary'  onClick={goConsulta}>
+         Consultas
+        </Button>
+      
+      </div>
+      
+      
+     
+      </>
+    );
+  }
 }
-
-export default Pacientes;
