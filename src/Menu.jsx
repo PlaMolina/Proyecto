@@ -1,10 +1,12 @@
 import React from 'react';
-import './styles/Botonesmenu.css';
+import { Button } from 'reactstrap';
+import './styles/Boton.css';
+import Logoempresa from './img/Logoempresa.png';
 import iconopacientes from './img/iconopacientes.png'
 import iconocalendario from './img/iconocalendario.png'
 import iconoconsultas from './img/iconoconsultas.png'
-
-function Menu (props){
+import NavBar from './NavBar'
+function Menu (){
     function goPacientes(){ 
         window.location.href='http://localhost:3001/pacientes'  
     }
@@ -15,11 +17,12 @@ function Menu (props){
         window.location.href='http://localhost:3001/consulta'  
     }
     return (
+        
         <div>
-            
-            <button className= {props.clase} block onClick={goPacientes}><img src={iconopacientes} alt='Pacientes' /></button>{' '}
-            <button className= {props.clase} block onClick={goCalendario}><img src={iconocalendario} alt='Calendario' /></button>{' '}
-            <button className= {props.clase} block onClick={goConsultas}><img src={iconoconsultas} alt='Consultas' /></button>{' '}
+            <NavBar nombre='Alfonso' apellido= 'Martinez'/>
+            <button className= 'Boton' block onClick={goPacientes}><img src={iconopacientes} alt='Pacientes' /></button>{' '}
+            <button className= 'Boton' block onClick={goCalendario}><img src={iconocalendario} alt='Calendario' /></button>{' '}
+            <button className= 'Boton' block onClick={goConsultas}><img src={iconoconsultas} alt='Consultas' /></button>{' '}
 
         </div>
 

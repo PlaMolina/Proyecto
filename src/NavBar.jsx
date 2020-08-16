@@ -11,6 +11,7 @@ import {
 import Logoempresa from './img/Logoempresa.png';
 import iconoperfil from './img/iconoperfil.png';
 
+
 const NavBar = (props) => {
 
 
@@ -21,14 +22,14 @@ const NavBar = (props) => {
           <Nav className="mr-auto" navbar>
               <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-              {props.nombre} <br/> {props.apellido}
+                {props.nombre} <br/> {props.apellido}
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem href='/perfil'>
                   Ajustes de perfil
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem href='/'>
+                <DropdownItem>
                   Cerrar sesión
                 </DropdownItem>
               </DropdownMenu>
