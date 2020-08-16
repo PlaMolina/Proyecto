@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import "./styles/App.css";
 //import { render } from 'react-dom';
 import { Button } from 'reactstrap';
@@ -42,4 +42,4 @@ function Modal() {
     )
     
 }
-export default Modal;
+export default Modal;*/

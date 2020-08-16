@@ -29,7 +29,7 @@ const NavBar = (props) => {
                   Ajustes de perfil
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>
+                <DropdownItem href='/'>
                   Cerrar sesión
                 </DropdownItem>
               </DropdownMenu>
