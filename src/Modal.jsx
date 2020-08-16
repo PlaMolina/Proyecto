@@ -1,4 +1,4 @@
-/*import React, { useState } from 'react';
+import React, { useState } from 'react';
 import "./styles/App.css";
 //import { render } from 'react-dom';
 import { Button } from 'reactstrap';
@@ -7,6 +7,7 @@ import ModalBody from 'react-bootstrap/Modal.Body';
 import ModalHeader from 'react-bootstrap/Modal.Header';
 import ModalFooter from 'react-bootstrap/Modal.Footer';
 import ModalTitle from 'react-bootstrap/Modal.Title';
+import ModalFooter from 'react-bootstrap/Modal.Footer';
 
 
 
@@ -41,4 +42,4 @@ function Modal() {
     )
     
 }
-export default Modal;*/
+export default Modal;

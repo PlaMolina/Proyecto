@@ -13,56 +13,26 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import Counter from './Counter';
 import Form from './Form';
 //import Modal from './Modal';
-import NavBar from './NavBar'
 import BotonNuevo from "./BotonNuevo";
 
 function App() {
-  const loginContainer = () => (
-    <>
-      <div className="App">
-        <header className="App-header">
-        {/*<Modal/>*/}
-          <Switch>
-            <Route path="/" exact component={Vista}/>
-            <Route path="/menu" component={Menu}/>
-            <Route path="/pacientes" component={Pacientes} />
-            <Route path="/nuevo" component={BotonNuevo} />
-            <Route path="/calendario" component={Calendario} />
-            <Route path="/consulta" component={Consulta} />
-            <Route path="/formulario" component={Form}/>
-          </Switch>
-        </header>
-      </div>
-    </>)
-
-  const appContainer = () => (
-    <>
-      <div className="App">
-      <div> <NavBar nombre='Alfonso' apellido='Martinez' /></div>
-        <header className="App-header">
-          {/*<Modal/>*/}          
-          <Route path="/menu" component={()=><Menu clase='Boton' />} />
-          <Route path="/pacientes" component={Pacientes} />
-          <Route path="/calendario" component={Calendario} />
-          <Route path="/consulta" component={Consulta} />
-          <Route path="/formulario" component={Form} />
-
-
-        </header>
-      </div>
-    </>)
-
   return (
     <>
-
       <Router>
-        <Switch>
-
-          <Route exact path="/" component={loginContainer} />
-          <Route component={appContainer} />
-
-
-        </Switch>
+        <div className="App">
+          <header className="App-header">
+          {/*<Modal/>*/}
+            <Switch>
+              <Route path="/" exact component={Vista}/>
+              <Route path="/menu" component={Menu}/>
+              <Route path="/pacientes" component={Pacientes} />
+              <Route path="/nuevo" component={BotonNuevo} />
+              <Route path="/calendario" component={Calendario} />
+              <Route path="/consulta" component={Consulta} />
+              <Route path="/formulario" component={Form}/>
+            </Switch>
+          </header>
+        </div>
       </Router>
     </>
   );
