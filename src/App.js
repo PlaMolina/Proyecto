@@ -40,6 +40,7 @@ function App() {
           <Route path="/calendario" component={Calendario} />
           <Route path="/consulta" component={Consulta} />
           <Route path="/formulario" component={Form} />
+          <Route path="/nuevo" component={BotonNuevo} />
 
 
         </header>

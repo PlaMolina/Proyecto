@@ -37,7 +37,7 @@ export default class Login extends React.Component {
 
         }else if(name == "Alejandro@gmail.com" && hashCode(psswd) == hash){
 
-            window.location.href = 'http://localhost:3000/menu';
+            window.location.href = 'http://localhost:3001/menu';
 
         }else{
             //document.getElementById('InputEmail').value = "";
