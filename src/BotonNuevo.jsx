@@ -70,6 +70,7 @@ class BotonNuevo extends Component {
           
         }))
         .catch(error => console.log("se ha producido un error: ", error));
+        alert('Guardado!')
     
       }
 
