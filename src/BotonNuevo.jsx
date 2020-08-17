@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {FormGroup,Label,Input, Button} from 'reactstrap';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 const MODEL = 'cliente';
 

@@ -19,7 +19,7 @@ export default class Login extends React.Component {
         function hashCode(str) {
             //Funcion que genera el hash de la contarseña introducida
             var hash = 0;
-            if (str.length == 0) { 
+            if (str.length === 0) { 
                 return hash;
             }
             for (var i = 0; i < str.length; i++) {
@@ -31,11 +31,11 @@ export default class Login extends React.Component {
         }
         var hash = hashCode("adriatroll");
         
-        if (name == "" || hash == ""){
+        if (name === "" || hash === ""){
 
             alert("Ingrese credenciales");
 
-        }else if(name == "Alejandro@gmail.com" && hashCode(psswd) == hash){
+        }else if(name === "Alejandro@gmail.com" && hashCode(psswd) === hash){
 
             window.location.href = 'http://localhost:3001/menu';
 
