@@ -10,7 +10,6 @@ import ModalTitle from 'react-bootstrap/Modal.Title';
 import ModalFooter from 'react-bootstrap/Modal.Footer';
 
 
-
 function Modal() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
