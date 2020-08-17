@@ -21,14 +21,14 @@ function App() {
     <>
       <div className="App">
         <header className="App-header">
-        {/*<Modal/>*/}
-          
-            <Route path="/" exact component={Vista}/>
+
+          <Route path="/" component={Vista} />
+
     
         </header>
       </div>
     </>)
-
+    
   const appContainer = () => (
     <>
       <div className="App">
@@ -46,23 +46,15 @@ function App() {
         </header>
       </div>
     </>)
-
   return (
     <>
-
       <Router>
         <Switch>
-
           <Route exact path="/" component={loginContainer} />
           <Route component={appContainer} />
-
-
         </Switch>
       </Router>
     </>
   );
 }
-
-
-
 export default App;
