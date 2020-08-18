@@ -35,7 +35,7 @@ export default class Login extends React.Component {
 
             alert("Ingrese credenciales");
 
-        }else if(name === "Alejandro@gmail.com" && hashCode(psswd) === hash){
+        }else if(name === "Sergi@fixio.com" && hashCode(psswd) === hash){
 
             window.location.href = 'http://localhost:3001/menu';
 
@@ -60,7 +60,7 @@ export default class Login extends React.Component {
                         <div className="checkbox mb-3">
                             <Label style={{ fontSize: "15px" }}>
                                 <Input type="checkbox" value="remember-me" /> Remember me
-                        </Label>
+                            </Label>
                         </div>
                         <Button onClick={this.validar} className="btn btn-lg btn-primary btn-block">Sign in</Button>
                     <p className="mt-5 mb-3 text-muted">&copy; 2019/2020</p>

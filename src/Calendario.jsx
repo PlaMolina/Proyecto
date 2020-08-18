@@ -26,7 +26,7 @@ export default class Calendario extends Component {
       <br></br>
       <br></br>
       <br></br>
-      <Link to="/menu" style={{color:'white'}}> <p>Volver al menu principal</p></Link>
+      {/*<Link to="/menu" style={{color:'white'}}> <p>Volver al menu principal</p></Link>*/}
 
       <div style={{marginLeft:'1%'}}>
         <Calendar 

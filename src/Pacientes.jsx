@@ -142,8 +142,9 @@ class Pacientes extends Component {
               <td>{el.email}</td>
               <td>{el.domicilio}</td>
               <td>{el.cuentaBancaria}</td>
+              <td><Button color="info" onClick={()=>this.editar(el)}>Editar</Button></td>
               <td><Button color="danger"  onClick={()=>this.eliminar(el.cliente_id)}>Eliminar</Button></td>
-              <td><Button color="primary" onClick={()=>this.editar(el)}>Editar</Button></td>
+              
               
 
             </tr>
@@ -161,7 +162,8 @@ class Pacientes extends Component {
         <br />
    
         <br />
-        <Link to="/menu" style={{color:'white'}}> <p>Volver al menu principal</p></Link>
+        
+          <center><h2>Pacientes</h2> </center>
         <br />
         <br />
 
@@ -231,12 +233,6 @@ class Pacientes extends Component {
         <Button color='success'  onClick={goNuevo}>
          Añadir paciente
         </Button>
-
-
-
-
-
-
       </>
     )
   }

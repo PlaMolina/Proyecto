@@ -22,7 +22,7 @@ const NavBar = (props) => {
           <Nav className="mr-auto" navbar>
               <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                {props.nombre} <br/> {props.apellido}
+                {props.nombre} {props.apellido}
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem href='/perfil'>

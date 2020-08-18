@@ -27,9 +27,9 @@ function App() {
   const appContainer = () => (
     <>
       <div className="App">
-        <div> <NavBar nombre='Alfonso' apellido='Martinez' /></div>
+        
         <header className="App-header">
-
+          <div> <b><NavBar nombre='Sergi' apellido='López' /> </b></div>
           <BotonCasita />
           <Route path="/menu" component={() => <Menu clase='Boton' />} />
           <Route path="/pacientes" component={Pacientes} />

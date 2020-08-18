@@ -71,6 +71,7 @@ class BotonNuevo extends Component {
         }))
         .catch(error => console.log("se ha producido un error: ", error));
         alert('Guardado!')
+        window.location.href = "/pacientes"
     
       }
 
@@ -111,11 +112,12 @@ render (){
         <br></br>
         <br></br>
         <br></br>
-        <Link to="/pacientes" style={{color:'white'}}> <h2>Volver a pacientes</h2></Link>
-        <FormGroup className='contenedorNuevo'>
+          <center><h2>Añadir Pacientes </h2></center>
+
+      <FormGroup className='contenedorNuevo'>
         <Label>Nombre</Label>
         <Input type='text'  name="nombre" value={this.state.nombre} onChange={this.actualizaInputs} ></Input>
-        </FormGroup>
+      </FormGroup>
        
 
       <FormGroup className='contenedorNuevo'>
@@ -144,7 +146,7 @@ render (){
         <Input type='text' name="cuentaBancaria" value={this.state.cuentaBancaria} onChange={this.actualizaInputs} ></Input>
       </FormGroup>
      
-
+      <Button color='danger' onClick={ () => window.location.href = "/pacientes" }>Cancelar</Button> {"  "}
       <Button color='success' onClick={this.guardar}>Guardar</Button>
       
       </div>
