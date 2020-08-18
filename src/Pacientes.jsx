@@ -172,7 +172,7 @@ class Pacientes extends Component {
 
               <th>Nombre</th>
               <th>Apellidos</th>
-              <th>Telefono</th>
+              <th>Teléfono</th>
               <th>Email</th>
               <th>Domicilio</th>
               <th>Cuenta Bancaria</th>
@@ -184,6 +184,7 @@ class Pacientes extends Component {
             {filas}
           </tbody>
         </Table>
+        
        <Modal isOpen={this.state.abierto}>
          <ModalHeader>
            Modificación

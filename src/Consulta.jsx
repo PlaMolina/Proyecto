@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import {Table,Input,Label,Button,Modal,ModalBody,ModalHeader,ModalFooter,FormGroup} from 'reactstrap';
 import { Link } from 'react-router-dom';
-const MODEL = 'cliente_consulta';
+
+const MODEL = 'client_tratamiento_consulta';
 const API_URL = "http://localhost:3000/api/" + MODEL;
+
 const HEADERS = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 });
+
 class Consulta extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            llista: []
+            llista: [],   
+            consulta_id:'',    
+            comentario:'',
+            abierto:false,
         }
         this.cargaDatos = this.cargaDatos.bind(this);
+       
+
     }
     componentDidMount() {
         this.cargaDatos();
@@ -28,6 +36,7 @@ class Consulta extends Component {
             .then(datos => this.setState({ llista: datos }))
             .catch(error => console.log(error))
     }
+    
     render() {
         if (this.state.llista.length === 0) {
             return <h3>Cargando...</h3>
@@ -36,12 +45,13 @@ class Consulta extends Component {
         const filas = this.state.llista.map((el, i) => (
             <tr key={i}>
                 <td>{el.nombre}</td>
+                <td>{el.nom}</td>
+                <td>{el.tipo}</td>
                 <td>{el.precio}</td>
                 <td>{el.fecha}</td>
-                <td>{el.pago}</td>
                 <td>{el.lesion}</td>
-                <td>{el.comentario}</td>
-                <td>{el.estado}</td>
+               
+            
             </tr>
         ));
         return (
@@ -64,19 +74,21 @@ class Consulta extends Component {
                 <Table style={{color:'white'}}>
                     <thead>
                         <tr>
-                            <th>Nom</th>
+                            <th>Cliente</th>
+                            <th>Tratamiento</th>
+                            <th>Tipo de terapia</th>
                             <th>Precio</th>
-                            <th>Fecha</th>
-                            <th>Pago</th>
-                            <th>Tipo de Lesión</th>
-                            <th>Comentario</th>
-                            <th>Estado consulta</th>
+                            <th style={{width:'200px'}}>Fecha</th>
+                            <th>Lesión</th>
+                           
+                        
                         </tr>
                     </thead>
                     <tbody>
                         {filas}
                     </tbody>
                 </Table>
+
             </>
         )
     }
