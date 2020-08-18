@@ -81,7 +81,6 @@ class Consulta extends Component {
                             <th style={{width:'200px'}}>Fecha</th>
                             <th>Lesión</th>
                            
-                            <th></th>
                         
                         </tr>
                     </thead>
